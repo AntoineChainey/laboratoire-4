@@ -1,0 +1,4 @@
+Age: 22.0, Consommation: oui, Rythme: chaque mois
+Age: 24.0, Consommation: oui, Rythme: chaque jour
+Age: 22.0, Consommation: oui, Rythme: chaque semaine
+Age: 22.0, Consommation: oui, Rythme: chaque semaine
