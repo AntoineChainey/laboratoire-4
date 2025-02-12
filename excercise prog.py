@@ -95,7 +95,8 @@ while test1 == 0 :      #boucle pour recommencer quand la réponse est incorrect
             else:
                 print("réponse incorect") 
         elif consommation == "non":
-            print("bravo") 
+            print("bravo")
+            rythmeconsommation = "autre"
             test1 = 1
         else:
             print("réponse incorrect")
@@ -122,48 +123,32 @@ while b == True :       #boucle du deuxieme questionnaire
                     break                   # renvoie a la fin du quiz
                 elif fréquence_drogue == "non" :
                     print("vous ne consommez pas chaque semaine")
-                    continue        #recommence la boucle.
-                else :
-                    print("réponse incorrect")
-                    continue
-            b = False
-            c = 5    
-            for i in range(c) :  #la boucle ce répete pour toutes les valeurs comprise dans le range c
-                fréquence_drogue = input("consommez vous chaque mois: ")    
-                if fréquence_drogue == "oui" :
-                    print("vous consommez chaque mois")
-                    break
-                elif fréquence_drogue == "non" :
-                    print("vous ne consommez pas chaque mois")
-                    d = 5    
-                    for i in range(d) :   
-                        fréquence_drogue = input("vous consommez a une autre fréquence que celle proposer: ")
+                    c = 5    
+                    for i in range(c) :  #la boucle ce répete pour toutes les valeurs comprise dans le range c
+                        fréquence_drogue = input("consommez vous chaque mois: ")    
                         if fréquence_drogue == "oui" :
-                            fréquence_drogue = input("a quel fréquence consommer vous: ")
+                            print("vous consommez chaque mois")
                             break
                         elif fréquence_drogue == "non" :
-                            print("vous avez répondue non le questionnaire recommence.")
-                            continue
+                            print("vous ne consommez pas chaque mois")
+                            d = 5    
+                            for i in range(d) :   
+                                fréquence_drogue = input("vous consommez a une autre fréquence que celle proposer: ")
+                                if fréquence_drogue == "oui" :
+                                    fréquence_drogue = input("a quel fréquence consommer vous: ")
+                                    break
+                                elif fréquence_drogue == "non" :
+                                    print("vous avez répondue non le questionnaire recommence.")
+                                    continue
+                                else :
+                                    print("réponse invallide")
+                                    continue
                         else :
-                            print("réponse invallide")
-                            continue
-            b = False
+                            print("réponse incorrect")
+                            continue    #recommence la boucle
+                    b = False    
                 else :
                     print("réponse incorrect")
-                    continue
-            b = False
-            d = 5    
-            for i in range(d) :   
-                fréquence_drogue = input("vous consommez a une autre fréquence que celle proposer: ")
-                if fréquence_drogue == "oui" :
-                    fréquence_drogue = input("a quel fréquence consommer vous: ")
-                    break
-                    
-                elif fréquence_drogue == "non" :
-                    print("vous avez répondue non le questionnaire recommence.")
-                    continue
-                else :
-                    print("réponse invallide")
                     continue
             b = False
         elif consommation_drogue == "non" :
@@ -177,7 +162,9 @@ while b == True :       #boucle du deuxieme questionnaire
     else :
         print("réponse incorrect")
         continue
-
+personne2 = [age, consommation_drogue, fréquence_drogue]    #liste les information entré par l'utilisateur
+with open("mon_fichier.txt", "a") as fichier:
+    fichier.write(f"Age: {age}, Consommation: {consommation_drogue}, Rythme: {fréquence_drogue}\n") #reccuelle les information entré par l'utilisateur
 
         
 
